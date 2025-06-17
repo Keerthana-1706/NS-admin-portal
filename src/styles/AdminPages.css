@@ -1,0 +1,751 @@
+.admin-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  background: #121212; /* Dark background */
+  gap: 2rem;
+  position: relative;
+}
+
+/* CORRECTED CODE */
+.admin-page-header {
+  font-size: 2.5rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, #c367e6, #a166e4);
+  -webkit-background-clip: text;
+  background-clip: text; /* <-- ADD THIS LINE */
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.category-selector-grid, .action-selector-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.selector-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #f0f0f0;
+  text-align: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.selector-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #a166e4;
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(161, 102, 228, 0.2);
+}
+
+.back-button {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.back-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Form Styling */
+.content-form-container {
+  width: 100%;
+  max-width: 800px;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.content-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.form-actions .save-button {
+  padding: 0.8rem 2rem;
+  background: linear-gradient(90deg, #c367e6, #a166e4);
+  color: white;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.form-actions .save-button:hover {
+  box-shadow: 0 4px 20px rgba(161, 102, 228, 0.4);
+  transform: scale(1.05);
+}
+
+/* --- ADD THESE STYLES TO THE END OF THE FILE --- */
+
+/* Delete Button Style */
+.delete-button {
+  padding: 0.8rem 2rem;
+  background: #e53e3e; /* Red color for delete */
+  color: white;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.delete-button:hover {
+  background: #c53030;
+  box-shadow: 0 4px 20px rgba(229, 62, 62, 0.4);
+  transform: scale(1.05);
+}
+
+/* Delete Confirmation Text */
+.delete-confirmation {
+  text-align: center;
+  padding: 2rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+.delete-confirmation p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+/* Rich Text Editor (React-Quill) Dark Theme */
+.ql-toolbar {
+  border-radius: 6px 6px 0 0 !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  background: rgba(255, 255, 255, 0.05);
+}
+.ql-container {
+  border-radius: 0 0 6px 6px !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  color: #fff;
+  font-size: 1rem;
+  min-height: 250px;
+}
+.ql-editor {
+  color: #fff;
+}
+.ql-snow .ql-stroke {
+  stroke: rgba(255, 255, 255, 0.7) !important;
+}
+.ql-snow .ql-picker-label {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Placeholder for Image Uploader */
+.upload-box-placeholder {
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+.upload-box-placeholder:hover {
+  border-color: #a166e4;
+}
+
+/* Button Focus Style (Purple instead of Blue) */
+button:focus-visible, a:focus-visible {
+  outline: 2px solid #a166e4;
+  outline-offset: 2px;
+}
+
+/* --- ADD THESE STYLES TO THE END OF THE FILE --- */
+
+/* Style for the list of articles on the Edit/Delete pages */
+.article-list {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.article-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #f0f0f0;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.article-list-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #a166e4;
+  transform: translateY(-2px);
+}
+
+.article-list-item .action-indicator {
+  color: #a166e4;
+  font-weight: 500;
+}
+
+/* --- Final Confirmation Delete Button (Red) --- */
+.delete-button-confirmation {
+  padding: 0.8rem 2rem;
+  background: #e53e3e; /* Red color */
+  color: white;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.delete-button-confirmation:hover {
+  background: #c53030;
+  box-shadow: 0 4px 20px rgba(229, 62, 62, 0.4);
+  transform: scale(1.05);
+}
+
+/* --- Delete confirmation text styling --- */
+.delete-confirmation .delete-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #f0f0f0;
+  margin: 1rem 0;
+}
+
+/* --- FIX for Button Focus Outline (Purple Theme) --- */
+.selector-btn:focus-visible, 
+.article-list-item:focus-visible, 
+.back-button:focus-visible {
+  outline: 2px solid #a166e4;
+  outline-offset: 2px;
+  border-color: #a166e4; /* Also change border color on focus */
+}
+
+/* === ADD THIS CODE TO THE END of AdminPages.css === */
+
+/* New Layout for Article Header */
+.article-header-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* 1/3 for image, 2/3 for text */
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.main-image-uploader {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Make it a square */
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  transition: border-color 0.3s ease;
+  padding: 1rem;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-image-uploader:hover {
+  border-color: #a166e4;
+}
+
+.main-image-uploader img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.main-image-uploader p {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Sub-Images Section */
+.sub-image-section {
+  margin-top: 2rem;
+}
+.sub-image-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.sub-image-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.sub-image-item input {
+  flex-grow: 1;
+}
+.add-more-btn, .remove-sub-image-btn {
+  padding: 0.6rem 1.2rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.remove-sub-image-btn {
+  background-color: rgba(229, 62, 62, 0.2);
+}
+.add-more-btn:hover {
+  background-color: rgba(161, 102, 228, 0.2);
+}
+.remove-sub-image-btn:hover {
+  background-color: rgba(229, 62, 62, 0.4);
+}
+
+/* Share Buttons Placeholder */
+.share-buttons-placeholder {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+}
+
+/* FIX for Button Focus Outline (Purple Theme) */
+.save-button:focus-visible, 
+.delete-button-confirmation:focus-visible, 
+.add-more-btn:focus-visible,
+.remove-sub-image-btn:focus-visible {
+  outline: 2px solid #a166e4;
+  outline-offset: 2px;
+}
+
+/* On active/click state, give feedback */
+.save-button:active, .delete-button-confirmation:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 10px rgba(161, 102, 228, 0.3);
+}
+
+/* === ADD THIS TO THE END OF YOUR AdminPages.css FILE === */
+
+/* Purple Header for the "Manage" page */
+.admin-page-header-purple {
+  font-size: 2.2rem;
+  color: #c495ff; /* A purple tone from your image */
+  text-align: center;
+  margin: 20px 0 40px 0;
+  font-weight: bold;
+}
+
+/* Container for the "+ Add New Article" link */
+.add-article-link-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+  text-align: right;
+}
+
+/* The "+ Add New Article" link itself */
+.add-article-link {
+  color: #8fa3ff; /* A blue tone from your image */
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.add-article-link:hover {
+  text-decoration: underline;
+}
+
+/* The Edit and Delete buttons inside the list */
+.list-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #e0e0e0;
+  transition: background-color 0.2s ease;
+}
+
+.edit-btn {
+  background-color: #55428f; /* Purple from image */
+}
+
+.edit-btn:hover {
+  background-color: #6a53b0;
+}
+
+.delete-btn {
+  background-color: #8f4242; /* Red from image */
+}
+
+.delete-btn:hover {
+  background-color: #b05353;
+}
+
+/* The title text within an article list item */
+.article-list-title {
+    color: #e0e0e0;
+    font-size: 1.1rem;
+}
+
+/* The container for the Edit/Delete buttons */
+.article-list-actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+/* Message for when a category has no articles */
+.no-articles-message {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 2rem;
+  font-style: italic;
+  max-width: 800px;
+}
+
+/* === ADD THIS CSS TO THE END OF AdminPages.css === */
+
+.notification-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.notification-box {
+  background-color: #1e1e21;
+  padding: 2rem 2.5rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  max-width: 400px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.notification-box p {
+  color: #e0e0e0;
+  font-size: 1.2rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.notification-close-btn {
+  padding: 0.6rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(90deg, #c367e6, #a166e4);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.notification-close-btn:hover {
+  box-shadow: 0 4px 20px rgba(161, 102, 228, 0.4);
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.main-image-uploader img {
+  /* This color should match the background of your .main-image-uploader box */
+  background-color: rgba(255, 255, 255, 0.05); 
+  /* This hides the ugly 'alt' text that shows on a broken image */
+  color: transparent;
+}
+/* === ADD THIS FOR THE URL WARNING MESSAGE === */
+
+.url-warning-text {
+  color: #f6ad55; /* A gentle orange/yellow for warnings */
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+/* === STYLES FOR VIEW BUTTON AND ARTICLE PAGE === */
+
+/* Style for the new "View" button in the list */
+.view-btn {
+  background-color: #3b82f6; /* A nice blue color */
+}
+
+.view-btn:hover {
+  background-color: #2563eb;
+}
+
+/* Container for the entire article view */
+.article-view-container {
+  width: 100%;
+  max-width: 800px;
+  background-color: #1e1e21;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e0e0e0;
+}
+
+.article-view-image {
+  width: 100%;
+  height: auto;
+  max-height: 450px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 2rem;
+}
+
+.article-view-headline {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #f0f0f0;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.article-view-description {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Styles for the content rendered from ReactQuill */
+.article-view-body {
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.article-view-body p {
+  margin-bottom: 1.5rem;
+}
+
+.article-view-body h1,
+.article-view-body h2,
+.article-view-body h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.article-view-body ul,
+.article-view-body ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.article-view-body a {
+  color: #8fa3ff;
+  text-decoration: underline;
+}
+
+/* Styles for sub-images at the end of the article */
+.article-sub-images {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.article-sub-images h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.article-sub-images img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+/* === NEW DASHBOARD AND LOGOUT STYLES === */
+
+/* Positions the logout button */
+.dashboard-header-bar {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: auto;
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #ef4444; /* A vibrant red */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #dc2626;
+  box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Centers the main dashboard content */
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+/* === STYLES FOR MAIL VIEW PAGE === */
+
+.mail-view-container {
+  width: 100%;
+  max-width: 500px; /* Mail previews are usually narrower */
+  background-color: #1e1e21;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden; /* Ensures the image corners are rounded */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.mail-view-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mail-view-content {
+  padding: 2rem;
+}
+
+.mail-view-headline {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #f0f0f0;
+  margin-bottom: 1rem;
+}
+
+.mail-view-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+/* === STYLES FOR CONFIRMATION DIALOG === */
+
+.confirmation-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.confirmation-btn {
+  padding: 0.6rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancel-btn {
+  background-color: #4b5563; /* A neutral gray */
+  color: #fff;
+}
+
+.cancel-btn:hover {
+  background-color: #6b7280;
+}
+
+.confirm-btn {
+  background-color: #ef4444; /* The same red as the logout button */
+  color: #fff;
+}
+
+.confirm-btn:hover {
+  background-color: #dc2626;
+  box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4);
+}

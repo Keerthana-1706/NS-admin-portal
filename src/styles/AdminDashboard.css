@@ -1,0 +1,88 @@
+/* src/styles/AdminDashboard.css - CORRECTED */
+
+.admin-dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 2rem;
+  background-color: #121212; /* A dark, modern background */
+  background-image: url('../img/body-bg.png'); /* Using your background pattern */
+  background-size: cover;
+  background-position: center;
+  color: #e0e0e0;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.admin-dashboard-header {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  right: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* The invalid line was here. It has been removed. */
+.admin-dashboard-header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #c367e6, #a166e4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+.logout-button {
+  padding: 0.6rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  background-color: #e53e3e;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.logout-button:hover {
+  background-color: #c53030;
+  border-color: transparent;
+}
+
+.welcome-message {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 3rem;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.admin-action-btn {
+  padding: 0.8rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #f0f0f0;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.admin-action-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: #a166e4;
+  transform: translateY(-3px);
+}
